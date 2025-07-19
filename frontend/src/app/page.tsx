@@ -56,7 +56,7 @@ const Page = () => {
       ) : draw ? (
         <h1 className="my-5 text-xl font-semibold">End Game!</h1>
       ) : (
-        <h1 className="my-5 text-xl font-semibold">Now {x}'s turn</h1>
+        <h1 className="my-5 text-xl font-semibold">{x}'s turn</h1>
       )}
 
       <div className="h-63 w-63 flex items-center justify-center">
@@ -64,7 +64,7 @@ const Page = () => {
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold text-center">
               {winner === "O" ? (
-                <Circle className="w-10 h-10 text-[#46A3FF]" />
+                <Circle className="w-10 h-10 text-[#FF827E]" />
               ) : (
                 <X className="w-12 h-12 text-[#46A3FF]" />
               )}{" "}
@@ -74,7 +74,7 @@ const Page = () => {
         ) : draw ? (
           <div>
             <div className="flex items-center justify-center">
-              <Circle className="w-10 h-10 text-[#46A3FF]" />
+              <Circle className="w-10 h-10 text-[#FF827E]" />
               <X className="w-12 h-12 text-[#46A3FF]" />
             </div>
             <p className="text-2xl font-bold text-center uppercase">Draw!!</p>
@@ -99,7 +99,7 @@ const Page = () => {
           setX("X");
           setDraw(false);
         }}
-        className="my-5 border px-5 py-1 cursor-pointer bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="my-5 border px-5 py-1.5 cursor-pointer bg-[#46A3FF] hover:bg-[#FF827E] text-white"
       >
         Restart Game
       </button>
