@@ -50,7 +50,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center">
       {winner ? (
         <h1 className="my-5 text-xl font-semibold">End Game!</h1>
       ) : draw ? (
