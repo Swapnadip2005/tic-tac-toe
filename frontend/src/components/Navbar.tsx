@@ -1,4 +1,4 @@
-import { Moon } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -23,11 +23,19 @@ const Navbar = ({ currentTheme, toggleTheme }: NavbarProps) => {
         </h1>
       </div>
       <div>
-        <Moon
-          strokeWidth={1.25}
-          className="mt-1 cursor-pointer dark:text-white"
-          onClick={toggleTheme}
-        />
+        {currentTheme === "dark" ? (
+          <Sun
+            onClick={toggleTheme}
+            strokeWidth={1.25}
+            className="mt-1 cursor-pointer text-white"
+          />
+        ) : (
+          <Moon
+            onClick={toggleTheme}
+            strokeWidth={1.25}
+            className="mt-1 cursor-pointer text-black"
+          />
+        )}
       </div>
     </div>
   );
