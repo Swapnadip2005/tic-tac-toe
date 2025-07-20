@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import ThemeLayout from "./themeLayout";
 
 export const metadata: Metadata = {
   title: "Tic Tac Toe",
@@ -16,8 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
+        <ThemeLayout>{children}</ThemeLayout>
         <Analytics />
       </body>
     </html>

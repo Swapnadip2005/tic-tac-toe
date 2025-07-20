@@ -50,13 +50,19 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="h-[calc(100vh-5rem)] flex flex-col items-center justify-center bg-white dark:bg-[#12161F]">
       {winner ? (
-        <h1 className="my-5 text-xl font-semibold">End Game!</h1>
+        <h1 className="my-5 text-xl font-semibold text-black dark:text-white">
+          End Game!
+        </h1>
       ) : draw ? (
-        <h1 className="my-5 text-xl font-semibold">End Game!</h1>
+        <h1 className="my-5 text-xl font-semibold text-black dark:text-white">
+          End Game!
+        </h1>
       ) : (
-        <h1 className="my-5 text-xl font-semibold">{x}'s turn</h1>
+        <h1 className="my-5 text-xl font-semibold text-black dark:text-white">
+          {x}'s turn
+        </h1>
       )}
 
       <div className="h-63 w-63 flex items-center justify-center">
@@ -69,7 +75,9 @@ const Page = () => {
                 <X className="w-12 h-12 text-[#46A3FF]" />
               )}{" "}
             </h2>
-            <p className="text-2xl font-bold text-center uppercase">Winner!</p>
+            <p className="text-2xl font-bold text-center uppercase text-black dark:text-white">
+              Winner!
+            </p>
           </div>
         ) : draw ? (
           <div>
@@ -77,7 +85,9 @@ const Page = () => {
               <Circle className="w-10 h-10 text-[#FF827E]" />
               <X className="w-12 h-12 text-[#46A3FF]" />
             </div>
-            <p className="text-2xl font-bold text-center uppercase">Draw!!</p>
+            <p className="text-2xl font-bold text-center uppercase text-black dark:text-white">
+              Draw!!
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-3 gap-1">
@@ -99,7 +109,7 @@ const Page = () => {
           setX("X");
           setDraw(false);
         }}
-        className="my-5 border px-5 py-1.5 cursor-pointer bg-[#46A3FF] hover:bg-[#FF827E] text-white"
+        className="my-5 px-5 py-1.5 cursor-pointer bg-[#46A3FF] hover:bg-[#FF827E] text-white"
       >
         Restart Game
       </button>

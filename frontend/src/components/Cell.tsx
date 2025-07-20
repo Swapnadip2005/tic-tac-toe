@@ -15,7 +15,7 @@ const Cell = ({ value, onClick }: CellProps) => {
         ? "border border-[#46A3FF] bg-[#46A3FF]/20"
         : value === "O"
         ? "border border-[#FF827E] bg-[#FF827E]/20"
-        : "border border-gray-300 bg-[#F1F1F1] hover:bg-gray-200"
+        : "border border-gray-300 bg-[#F1F1F1] hover:bg-gray-200 dark:bg-[#12161F] dark:border-[#212835] dark:hover:bg-[#151a22]"
     }
   `}
       onClick={onClick}

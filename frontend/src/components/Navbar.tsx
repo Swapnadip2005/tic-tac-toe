@@ -2,21 +2,32 @@ import { Moon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentTheme: "light" | "dark";
+  toggleTheme: () => void;
+}
+
+const Navbar = ({ currentTheme, toggleTheme }: NavbarProps) => {
   return (
-    <div className="w-full h-15 border-b flex items-center justify-between py-10 px-4">
+    <div className="w-full h-15 flex items-center justify-between py-10 px-4 shadow bg-white dark:bg-[#12161F]">
       <div className="flex items-center gap-3">
         <Image
-          src="/logoLight.png"
-          alt=""
+          src={currentTheme === "dark" ? "/logoDark.png" : "/logoLight.png"}
+          alt="logo"
           height={50}
           width={50}
           quality={100}
         />
-        <h1 className="text-2xl font-bold">Tic Tac Toe</h1>
+        <h1 className="text-2xl font-bold text-black dark:text-white">
+          Tic Tac Toe
+        </h1>
       </div>
       <div>
-        <Moon strokeWidth={1.25} />
+        <Moon
+          strokeWidth={1.25}
+          className="mt-1 cursor-pointer dark:text-white"
+          onClick={toggleTheme}
+        />
       </div>
     </div>
   );
