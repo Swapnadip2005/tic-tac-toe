@@ -32,10 +32,10 @@ const ThemeLayout: React.FC<ThemeLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div>
+    <>
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <main>{children}</main>
-    </div>
+    </>
   );
 };
 
