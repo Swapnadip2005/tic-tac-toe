@@ -3,12 +3,15 @@
 import Cell from "@/components/Cell";
 import React, { useState } from "react";
 import { Circle, X } from "lucide-react";
+import Turn from "@/components/Turn";
 
 const Page = () => {
   const [cells, setCells] = useState<string[]>(Array(9).fill(""));
   const [x, setX] = useState<string>("X");
   const [winner, setWinner] = useState<string | null>(null);
   const [draw, setDraw] = useState<boolean>(false);
+  const [xScore, setXScore] = useState<number>(0);
+  const [oScore, setOScore] = useState<number>(0);
   console.log("cells", cells);
 
   const checkWinner = (cells: string[]) => {
@@ -42,6 +45,11 @@ const Page = () => {
 
     if (win) {
       setWinner(win);
+      if (win === "X") {
+        setXScore(xScore + 1);
+      } else {
+        setOScore(oScore + 1);
+      }
     } else if (newCells.every((cell) => cell !== "")) {
       setDraw(true);
     } else {
@@ -51,23 +59,12 @@ const Page = () => {
 
   return (
     <div className="h-[calc(100vh-9rem)] font-druk flex flex-col items-center md:justify-center justify-items-start bg-white dark:bg-[#1a1a1a] p-4">
-      <div className="w-full flex flex-col items-center border rounded-lg p-4 dark:border-[#7c7c7c]">
-        <div className="flex flex-col items-center justify-center gap-8">
-          <div>
-            {winner ? (
-              <h1 className="text-xl font-semibold text-black dark:text-white">
-                End Game!
-              </h1>
-            ) : draw ? (
-              <h1 className="text-xl font-semibold text-black dark:text-white">
-                End Game!
-              </h1>
-            ) : (
-              <h1 className="text-xl font-semibold text-black dark:text-white">
-                {x}'s turn
-              </h1>
-            )}
-          </div>
+      <div className="w-full flex flex-col items-center justify-center gap-5 border rounded-lg p-4 dark:border-[#7c7c7c]">
+        <div className="w-full flex items-center justify-center md:gap-10 gap-5">
+          <Turn player="X" score={xScore} isCurrentTurn={x === "X"} />
+          <Turn player="O" score={oScore} isCurrentTurn={x === "O"} />
+        </div>
+        <div className="w- flex flex-col items-center justify-center gap-8">
           {winner ? (
             <div className="w-77 h-77 flex flex-col items-center justify-center">
               <h2 className="text-2xl font-bold text-center">
@@ -113,7 +110,7 @@ const Page = () => {
               setX("X");
               setDraw(false);
             }}
-            className="w-full px-5 py-2.5 cursor-pointer border border-[#7c7c7c] dark:text-white font-druk rounded-lg"
+            className="w-full px-5 py-2.5 cursor-pointer border border-b-4 border-[#7c7c7c] dark:text-white font-druk rounded-lg"
           >
             Restart Game
           </button>

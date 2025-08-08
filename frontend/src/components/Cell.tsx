@@ -9,13 +9,13 @@ interface CellProps {
 const Cell = ({ value, onClick }: CellProps) => {
   return (
     <button
-      className={`w-25 h-25 text-2xl font-bold rounded-lg flex items-center justify-center cursor-pointer
+      className={`w-25 h-25 text-2xl font-bold rounded-lg flex items-center justify-center cursor-pointer border
     ${
       value === "X"
-        ? "border border-[#0071bb] bg-[#0071bb]/10"
+        ? "border-[#0071bb] bg-[#0071bb]/10"
         : value === "O"
-        ? "border border-[#ff521c] bg-[#ff521c]/20"
-        : "border border-gray-300 dark:border-[#7c7c7c]"
+        ? "border-[#ff521c] bg-[#ff521c]/20"
+        : "border-gray-300 dark:border-[#7c7c7c]"
     }
   `}
       onClick={onClick}
