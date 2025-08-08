@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface ThemeLayoutProps {
   children: React.ReactNode;
@@ -35,6 +36,7 @@ const ThemeLayout: React.FC<ThemeLayoutProps> = ({ children }) => {
     <>
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <main>{children}</main>
+      <Footer />
     </>
   );
 };
