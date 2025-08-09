@@ -4,21 +4,24 @@ import React from "react";
 interface CellProps {
   value: string;
   onClick: () => void;
+  disabled?: boolean;
 }
 
-const Cell = ({ value, onClick }: CellProps) => {
+const Cell = ({ value, onClick, disabled = false }: CellProps) => {
   return (
     <button
-      className={`w-25 h-25 text-2xl font-bold rounded-lg flex items-center justify-center cursor-pointer border
-    ${
-      value === "X"
-        ? "border-[#0071bb] bg-[#0071bb]/10"
-        : value === "O"
-        ? "border-[#ff521c] bg-[#ff521c]/20"
-        : "border-[#7c7c7c]"
-    }
-  `}
+      className={`w-25 h-25 text-2xl font-bold rounded-lg flex items-center justify-center border
+        ${
+          value === "X"
+            ? "border-[#0071bb] bg-[#0071bb]/10"
+            : value === "O"
+            ? "border-[#ff521c] bg-[#ff521c]/20"
+            : "border-[#7c7c7c]"
+        }
+        ${disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"}
+      `}
       onClick={onClick}
+      disabled={disabled}
     >
       {value === "O" && (
         <Circle className="w-13 h-13 text-[#ff521c]" strokeWidth={4} />
