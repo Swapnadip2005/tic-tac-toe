@@ -10,7 +10,7 @@ export default function Level({ gameMode, onModeChange }: LevelProps) {
   const getModeDisplayName = (mode: string) => {
     switch (mode) {
       case "impossible":
-        return "Impossible";
+        return "Impossible AI";
       case "friend":
         return "With Friend";
       default:
@@ -20,7 +20,7 @@ export default function Level({ gameMode, onModeChange }: LevelProps) {
 
   return (
     <Menu as="div" className="relative inline-block">
-      <MenuButton className="inline-flex w-50 justify-between items-center rounded-lg dark:text-white px-5 py-3 text-sm border border-b-4 border-[#7c7c7c] cursor-pointer whitespace-nowrap">
+      <MenuButton className="inline-flex w-53 justify-between items-center rounded-lg dark:text-white px-5 py-3 text-sm border border-b-4 border-[#7c7c7c] cursor-pointer whitespace-nowrap">
         <span className="truncate">{getModeDisplayName(gameMode)}</span>
         <ChevronDown
           aria-hidden="true"
@@ -42,7 +42,7 @@ export default function Level({ gameMode, onModeChange }: LevelProps) {
                   : "text-gray-700 dark:text-gray-300"
               }`}
             >
-              Impossible
+              Impossible AI
             </button>
           </MenuItem>
           <MenuItem>

@@ -170,7 +170,7 @@ const Page = () => {
       setIsAITurn(true);
       setTimeout(() => {
         makeAIMove(cells);
-      }, 500);
+      }, 700);
     }
   }, [
     currentPlayer,
