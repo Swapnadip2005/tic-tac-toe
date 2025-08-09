@@ -2,8 +2,9 @@
 
 import Cell from "@/components/Cell";
 import React, { useState } from "react";
-import { Circle, X } from "lucide-react";
+import { Circle, Share2, X } from "lucide-react";
 import Turn from "@/components/Turn";
+import Level from "@/components/Level";
 
 const Page = () => {
   const [cells, setCells] = useState<string[]>(Array(9).fill(""));
@@ -60,9 +61,21 @@ const Page = () => {
   return (
     <div className="h-[calc(100vh-9rem)] font-druk flex flex-col items-center md:justify-center justify-items-start bg-white dark:bg-[#1a1a1a] p-4">
       <div className="w-full flex flex-col items-center justify-center gap-5 border rounded-lg p-4 dark:border-[#7c7c7c]">
-        <div className="w-full flex items-center justify-center md:gap-10 gap-5">
-          <Turn player="X" score={xScore} isCurrentTurn={x === "X"} />
-          <Turn player="O" score={oScore} isCurrentTurn={x === "O"} />
+        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="md:hidden w-full flex items-center justify-between">
+            <Level />
+            <Share2 strokeWidth={2.5} className="cursor-pointer dark:text-white" />
+          </div>
+          <div className="hidden md:block">
+            <Level />
+          </div>
+          <div className="w-full md:relative md:-left-22 flex items-center justify-center md:gap-10 gap-5">
+            <Turn player="X" score={xScore} isCurrentTurn={x === "X"} />
+            <Turn player="O" score={oScore} isCurrentTurn={x === "O"} />
+          </div>
+          <div className="hidden md:block">
+            <Share2 strokeWidth={2.5} className="cursor-pointer dark:text-white" />
+          </div>
         </div>
         <div className="w- flex flex-col items-center justify-center gap-8">
           {winner ? (
