@@ -12,3 +12,14 @@
 .font-druk {
   font-family: "DrukWideBold", sans-serif;
 }
+
+.winning-cell {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
