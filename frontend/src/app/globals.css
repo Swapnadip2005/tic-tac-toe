@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Lobster&family=Major+Mono+Display&family=Montserrat:ital,wght@0,900;1,900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&family=Yesteryear&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-boldonse: "Boldonse", system-ui;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCircleClockwise {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
